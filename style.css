@@ -111,6 +111,22 @@ tr.me td{background:var(--mint);color:var(--teal);font-weight:600}tr.me td:first
 .loyalty-numbers span{display:flex;flex-direction:column;gap:4px}
 .loyalty-numbers b{font-size:24px;color:var(--teal)}
 .loyalty-numbers small{color:var(--mut)}
+.theme-toggle{height:40px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font-size:12px;font-weight:600;white-space:nowrap}
+.theme-toggle:hover{border-color:var(--teal);color:var(--teal)}
+body.dark-mode{color-scheme:dark;--bg:#111c1b;--ink:#e6efed;--mut:#a4b7b4;--line:#334844;--mint:#1d3935;--deep:#0d4f4c;--blueBg:#253450;--blue:#b9c9f2;--slate:#202e33;background:#101817}
+body.dark-mode .side,body.dark-mode .top,body.dark-mode .card,body.dark-mode .search,body.dark-mode .day,body.dark-mode .slot,body.dark-mode .chip,body.dark-mode .auth-tab,body.dark-mode .auth-field input,body.dark-mode .tabs.box .tab:not(.on){background:#172422;color:var(--ink);border-color:var(--line)}
+body.dark-mode .page{background:var(--bg)}
+body.dark-mode .logo{color:#d9eeeb}
+body.dark-mode .nav a:hover{background:#203733}
+body.dark-mode .btn.light{background:#1b2b29;color:#82d8ce;border-color:var(--line)}
+body.dark-mode .btn.light:hover{background:#24413d;border-color:var(--teal)}
+body.dark-mode .day.on{background:var(--teal);border-color:var(--teal);color:#fff}
+body.dark-mode .day.on small{color:#fff}
+body.dark-mode .tile{background:#20312f}
+body.dark-mode .banner.warn,body.dark-mode .notice{background:#392f1c;color:#f1d39b}
+body.dark-mode .banner.warn h4,body.dark-mode .banner.warn p{color:#f1d39b}
+body.dark-mode .form-message{color:#ffaaaa}
+body.dark-mode .star{color:#edce82}
 [hidden]{display:none!important}
 @media(max-width:1100px){.hero,.split,.qgrid{grid-template-columns:1fr}.g3{grid-template-columns:1fr 1fr}}
 @media(max-width:900px){.app{grid-template-columns:1fr}.side{position:fixed;left:0;top:0;width:260px;z-index:30;transform:translateX(-100%);transition:transform .2s;box-shadow:0 0 40px rgba(0,0,0,.15)}.nav-open .side{transform:none}.menu-btn{display:block}.top .hide{display:none}.page{padding:24px 18px 40px}}

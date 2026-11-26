@@ -9,16 +9,49 @@ const I={
 };
 const NAV=[['index.html','Overview','grid'],['doctors.html','Find a doctor','search'],['appointments.html','My appointments','cal'],['queue.html','Live queue','clock']];
 const b=document.body, main=document.querySelector('main'), cur=b.dataset.nav, crumb=b.dataset.crumb||'Patient portal';
+const themeStorageKey='careline-theme';
+let savedTheme=null;
+try{savedTheme=localStorage.getItem(themeStorageKey)}catch(error){console.warn('Theme preference could not be read:',error.message)}
+const systemTheme=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+const applyTheme=(theme)=>{
+ b.dataset.theme=theme;
+ b.classList.toggle('dark-mode',theme==='dark');
+ const button=document.getElementById('theme-toggle');
+ if(button){
+  const nextTheme=theme==='dark'?'light':'dark';
+  button.textContent=nextTheme==='dark'?'Dark mode':'Light mode';
+  button.setAttribute('aria-label','Switch to '+nextTheme+' mode');
+  button.setAttribute('title','Switch to '+nextTheme+' mode');
+  button.setAttribute('aria-pressed',String(theme==='dark'));
+ }
+};
+applyTheme(savedTheme==='dark'||savedTheme==='light'?savedTheme:systemTheme);
 const app=document.createElement('div');app.className='app';
 app.innerHTML=`<aside class="side"><a class="logo" href="index.html"><span class="mark">${I.cross}</span>careline</a>
 <p class="label">PATIENT PORTAL</p><nav class="nav">${NAV.map(n=>`<a href="${n[0]}" class="${n[0]===cur?'on':''}">${I[n[2]]}${n[1]}</a>`).join('')}</nav>
 <div class="help"><h4>Here to help</h4><p>Questions about your visit?</p><a href="tel:+6285550123">Call (02) 8555 0123</a><p style="margin:0">Mon–Sat, 7 AM–8 PM</p></div>
 <p class="copy">© 2026 Careline Hospital</p></aside>
 <div class="right"><header class="top"><div class="bc"><button class="menu-btn" aria-label="Open menu">${I.menu}</button><a href="index.html">Careline General Hospital</a><span>/</span><a href="index.html">${crumb}</a></div>
-<div class="r"><a id="account-link" href="login.html">Sign in</a><button id="sign-out-global" class="btn light" type="button" hidden>Sign out</button></div></header></div>`;
+<div class="r"><button id="theme-toggle" class="theme-toggle" type="button">Dark mode</button><a id="account-link" href="login.html">Sign in</a><button id="sign-out-global" class="btn light" type="button" hidden>Sign out</button></div></header></div>`;
 b.prepend(app);app.querySelector('.right').appendChild(main);
+applyTheme(b.dataset.theme);
 app.querySelector('.menu-btn').onclick=()=>b.classList.toggle('nav-open');
 main.addEventListener('click',()=>b.classList.remove('nav-open'));
+document.getElementById('theme-toggle').addEventListener('click',()=>{
+ const nextTheme=b.classList.contains('dark-mode')?'light':'dark';
+ applyTheme(nextTheme);
+ try{localStorage.setItem(themeStorageKey,nextTheme)}catch(error){console.warn('Theme preference could not be saved:',error.message)}
+});
+if(window.matchMedia){
+ const colorScheme=window.matchMedia('(prefers-color-scheme: dark)');
+ const updateSystemTheme=(event)=>{
+  let choice=null;
+  try{choice=localStorage.getItem(themeStorageKey)}catch(error){return}
+  if(choice!=='dark'&&choice!=='light')applyTheme(event.matches?'dark':'light');
+ };
+ if(colorScheme.addEventListener)colorScheme.addEventListener('change',updateSystemTheme);
+ else if(colorScheme.addListener)colorScheme.addListener(updateSystemTheme);
+}
 const todayDate=document.getElementById('today-date');
 if(todayDate)todayDate.textContent=new Intl.DateTimeFormat('en-PH',{
  weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Manila'
