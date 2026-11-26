@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Patient account · Careline</title><link rel="stylesheet" href="style.css"></head>
+<body data-nav="login.html"><main class="page">
+<div class="head"><div><p class="eyebrow">Your Careline account</p><h1>Sign in for thoughtful care.</h1><p class="sub">Manage visits and earn rewards as a returning patient.</p></div></div>
+<div class="narrow">
+ <section class="card auth-card">
+  <div id="setup-notice" class="notice" role="status" hidden>Supabase is not connected yet. Run <b>supabase-schema.sql</b>, then add your publishable/anon key in <b>supabase-config.js</b>.</div>
+  <div id="auth-panel">
+   <div class="auth-tabs"><button type="button" class="auth-tab on" data-mode="signin">Sign in</button><button type="button" class="auth-tab" data-mode="signup">Create account</button></div>
+   <form id="auth-form" class="auth-form">
+    <label class="auth-field" id="full-name-field" hidden>Full name<input id="full-name" name="name" autocomplete="name" maxlength="120"></label>
+    <label class="auth-field">Email address<input id="email" name="email" type="email" autocomplete="email" required></label>
+    <label class="auth-field">Password<input id="password" name="password" type="password" autocomplete="current-password" minlength="8" required></label>
+    <p class="mut sm">Use at least 8 characters. Your account is managed securely by Supabase Auth.</p>
+    <p id="auth-message" class="form-message" role="status" aria-live="polite"></p>
+    <button id="auth-submit" class="btn block" type="submit">Sign in</button>
+   </form>
+  </div>
+  <div id="signed-in-panel" hidden>
+   <h2>You’re signed in</h2><p id="signed-in-email" class="mut" style="margin:10px 0 24px"></p>
+   <div class="btns"><a class="btn" href="index.html">Go to overview</a><button id="sign-out" class="btn light" type="button">Sign out</button></div>
+  </div>
+ </section>
+ <section class="card tint" style="margin-top:20px"><h2 style="font-size:19px">Careline rewards</h2><p style="margin-top:10px">Earn 10% off after 6 months as a member and 5 completed appointments, or 15% off after 12 months and 10 completed appointments. Both the membership period and visit count must qualify.</p></section>
+</div>
+</main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="script.js"></script><script src="auth.js"></script></body></html>

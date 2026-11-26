@@ -2,10 +2,7 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Visit history · Careline</title><link rel="stylesheet" href="style.css"></head>
 <body data-nav="appointments.html"><main class="page">
 <div class="head" style="align-items:center"><div><p class="eyebrow">Your health journey</p><h1>Visit history</h1><p class="sub">A simple record of the care you’ve received.</p></div><a class="btn" href="doctors.html">+ Book appointment</a></div>
-<div class="tabs box"><a class="tab" href="appointments.html">Upcoming (2)</a><a class="tab on" href="history.html">Visit history (2)</a></div>
-<article class="card appt" style="flex-wrap:wrap;margin-bottom:28px"><div class="tile"><small>Oct</small><b>10</b></div><div class="body"><h3>Dr. Ethan Chen</h3><p class="mut">General Medicine · Routine consultation</p><p>10 Oct 2026 · 9:00 AM &nbsp;·&nbsp; Room 204, Floor 2</p></div><span class="pill badge">✓ Completed</span>
- <p class="mut sm" style="width:100%;margin:26px 0 0">Consultation completed. For medical documents, contact the hospital records desk.</p></article>
-<article class="card appt" style="flex-wrap:wrap"><div class="tile"><small>Aug</small><b>18</b></div><div class="body"><h3>Dr. Maya Patel</h3><p class="mut">Pediatrics · Family consultation</p><p>18 Aug 2026 · 2:00 PM &nbsp;·&nbsp; Room 105, Floor 1</p></div><span class="pill badge">✓ Completed</span>
- <p class="mut sm" style="width:100%;margin:26px 0 0">Consultation completed. For medical documents, contact the hospital records desk.</p></article>
+<div class="tabs box"><a class="tab" href="appointments.html">Upcoming</a><a class="tab on" href="history.html">Visit history</a></div>
+<div id="appointment-list" data-filter="history" aria-live="polite"><p class="mut">Sign in to view your visit history.</p><a class="btn light" href="login.html?next=history.html">Sign in</a></div>
 <div class="banner" style="margin-top:56px;background:#eef3f6"><h3>Your records are personal.</h3><p>For copies of consultation notes, test results, or medical certificates, please contact our records team.</p><a href="mailto:records@careline.example">records@careline.example</a> <span class="mut">·</span> <a href="tel:+6285550123">(02) 8555 0123 ext. 204</a></div>
-</main><script src="script.js"></script></body></html>
+</main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="script.js"></script></body></html>

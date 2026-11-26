@@ -96,6 +96,22 @@ tr.me td{background:var(--mint);color:var(--teal);font-weight:600}tr.me td:first
 .steps li{list-style:none;display:flex;gap:16px;margin-bottom:24px}.steps i{width:32px;height:32px;border-radius:50%;background:var(--mint);color:var(--teal);display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:600;flex:none}
 .steps li.todo{color:var(--mut)}.steps b{display:block;font-size:14px}.steps small{color:var(--mut)}
 .live{color:var(--teal);font-size:13px;display:flex;align-items:center;gap:8px}.live i{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.auth-card{max-width:620px;margin:0 auto}
+.auth-tabs{display:flex;gap:12px;margin-bottom:26px}
+.auth-tab{flex:1;height:44px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--mut)}
+.auth-tab.on{background:var(--mint);border-color:var(--teal);color:var(--teal);font-weight:600}
+.auth-tab:disabled{cursor:not-allowed;opacity:.55}
+.auth-form{display:grid;gap:16px}
+.auth-field{display:grid;gap:8px;color:var(--mut);font-size:13px}
+.auth-field input{width:100%;height:44px;border:1px solid var(--line);border-radius:8px;background:#fff;padding:0 12px;color:var(--ink)}
+.form-message{min-height:1.4em;margin:12px 0;color:#9b3030;font-size:13px}
+.notice{margin-bottom:20px;padding:14px 16px;border-radius:10px;background:#fff5df;color:#7a4a0c;font-size:13px}
+.loyalty-card{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:0 0 40px}
+.loyalty-numbers{display:flex;gap:28px}
+.loyalty-numbers span{display:flex;flex-direction:column;gap:4px}
+.loyalty-numbers b{font-size:24px;color:var(--teal)}
+.loyalty-numbers small{color:var(--mut)}
+[hidden]{display:none!important}
 @media(max-width:1100px){.hero,.split,.qgrid{grid-template-columns:1fr}.g3{grid-template-columns:1fr 1fr}}
 @media(max-width:900px){.app{grid-template-columns:1fr}.side{position:fixed;left:0;top:0;width:260px;z-index:30;transform:translateX(-100%);transition:transform .2s;box-shadow:0 0 40px rgba(0,0,0,.15)}.nav-open .side{transform:none}.menu-btn{display:block}.top .hide{display:none}.page{padding:24px 18px 40px}}
 @media(max-width:640px){.g2,.g3,.cols3,.btns{grid-template-columns:1fr}.head{flex-direction:column}.end{align-items:flex-start;text-align:left}.days{grid-template-columns:repeat(3,1fr)}.slots{grid-template-columns:repeat(2,1fr)}.appt{flex-direction:column}.appt .badge{position:static}.qrow,.qbox{flex-direction:column;align-items:stretch;gap:16px}.tab{width:auto;flex:1}.big{font-size:44px}.dark .row{flex-direction:column}table{font-size:12px}}

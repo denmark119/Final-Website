@@ -7,26 +7,31 @@
  <div class="grid g2" style="gap:24px"><div class="field"><span>Department</span><div class="box">Cardiology</div></div><div class="field"><span>Doctor</span><div class="box">Dr. Sofia Reyes</div></div></div>
  <div class="field"><span>Consultation type</span><div class="box in"><span><i></i>&nbsp; In-person consultation</span><span class="sm">Careline General Hospital</span></div></div>
  <h2 class="sec" style="margin-top:34px"><span>02</span> Choose date &amp; time</h2>
- <div style="display:flex;justify-content:space-between"><b style="font-weight:600">November 2026</b><span class="mut sm">Hospital time · GMT+8</span></div>
+ <div style="display:flex;justify-content:space-between"><b style="font-weight:600">November–December 2026</b><span class="mut sm">Hospital time · GMT+8</span></div>
  <div class="days">
-  <button class="day" data-long="Wednesday, 25 November 2026" data-short="Wed, 25 Nov 2026"><small>WED</small><b>25</b></button>
-  <button class="day on" data-long="Thursday, 26 November 2026" data-short="Thu, 26 Nov 2026"><small>THU</small><b>26</b></button>
-  <button class="day" data-long="Friday, 27 November 2026" data-short="Fri, 27 Nov 2026"><small>FRI</small><b>27</b></button>
-  <button class="day" data-long="Saturday, 28 November 2026" data-short="Sat, 28 Nov 2026"><small>SAT</small><b>28</b></button>
-  <button class="day" data-long="Monday, 30 November 2026" data-short="Mon, 30 Nov 2026"><small>MON</small><b>30</b></button>
-  <button class="day" data-long="Tuesday, 1 December 2026" data-short="Tue, 1 Dec 2026"><small>TUE</small><b>01</b></button></div>
+  <button class="day on" data-date="2026-11-27" data-long="Friday, 27 November 2026" data-short="Fri, 27 Nov 2026"><small>FRI</small><b>27</b></button>
+  <button class="day" data-date="2026-11-28" data-long="Saturday, 28 November 2026" data-short="Sat, 28 Nov 2026"><small>SAT</small><b>28</b></button>
+  <button class="day" data-date="2026-11-30" data-long="Monday, 30 November 2026" data-short="Mon, 30 Nov 2026"><small>MON</small><b>30</b></button>
+  <button class="day" data-date="2026-12-01" data-long="Tuesday, 1 December 2026" data-short="Tue, 1 Dec 2026"><small>TUE</small><b>01</b></button>
+  <button class="day" data-date="2026-12-02" data-long="Wednesday, 2 December 2026" data-short="Wed, 2 Dec 2026"><small>WED</small><b>02</b></button>
+  <button class="day" data-date="2026-12-03" data-long="Thursday, 3 December 2026" data-short="Thu, 3 Dec 2026"><small>THU</small><b>03</b></button></div>
  <span class="mut sm">Morning</span>
  <div class="slots"><button class="slot" data-t="9:00 AM" data-end="9:30 AM">9:00 AM</button><button class="slot on" data-t="9:30 AM" data-end="10:00 AM">9:30 AM</button><button class="slot" data-t="10:00 AM" data-end="10:30 AM">10:00 AM</button><button class="slot" data-t="10:30 AM" data-end="11:00 AM">10:30 AM</button></div>
  <h2 class="sec"><span>03</span> Patient information</h2>
- <div class="field"><span>Booking for</span><b style="font-weight:500;font-size:16px">Myself · Alex Morgan &nbsp;/&nbsp; CL-20481</b></div>
- <div class="field"><span>Reason for visit</span><textarea class="box" aria-label="Reason for visit">Routine heart health check-up</textarea></div>
- <p class="mut sm" style="margin-top:22px">Contact: alex.morgan@example.com &nbsp;·&nbsp; +63 917 555 0142</p></section>
+ <div class="field"><span>Booking for</span><b id="booking-user" style="font-weight:500;font-size:16px">Sign in to book an appointment</b></div>
+ <div class="field"><span>Reason for visit</span><textarea id="reason" class="box" aria-label="Reason for visit" maxlength="1000"></textarea></div>
+ <p id="booking-email" class="mut sm" style="margin-top:22px"><a class="tealtx" href="login.html?next=book.html">Sign in or create an account</a> to save this appointment.</p>
+ <p id="booking-error" class="form-message" role="alert" aria-live="polite"></p></section>
 <aside><section class="card sum" style="padding:26px"><h2 style="font-size:20px;margin-bottom:22px">Your appointment</h2>
  <small class="tealtx" style="font-weight:600;margin-bottom:12px">CARDIOLOGY</small><h3 style="margin-bottom:6px">Dr. Sofia Reyes</h3><p class="mut sm">Consultant cardiologist</p><hr>
  <small>Date &amp; time</small><b id="sdate">Thursday, 26 November 2026</b><span class="mut" id="stime">9:30 AM – 10:00 AM</span><hr style="margin:20px 0 14px">
  <small>Location</small><b>Room 308, Floor 3</b><span class="mut sm">Careline General Hospital</span>
- <div class="fee"><span>Consultation fee</span><b>$60.00</b></div><p class="mut sm" style="margin-bottom:24px">Pay at the hospital · Insurance accepted</p>
- <a class="btn block" href="confirmed.html">Confirm appointment →</a></section>
+ <div class="fee"><span>Consultation fee</span><b>$60.00</b></div>
+ <div id="discount-row" class="fee" hidden><span id="discount-label">Loyalty discount</span><b id="discount-amount">−$0.00</b></div>
+ <div class="fee"><span>Estimated total</span><b id="estimated-total">$60.00</b></div>
+ <p id="loyalty-message" class="mut sm" style="margin:8px 0 18px">Sign in to check your loyalty reward.</p>
+ <p class="mut sm" style="margin-bottom:16px">Pay at the hospital · Insurance accepted</p>
+ <button class="btn block" id="confirm-booking" type="button">Confirm appointment →</button></section>
  <section class="card tint checks" style="margin-top:20px;padding:24px"><h3>A little peace of mind</h3><p>✓ Confirmation sent to your email</p><p>✓ Reschedule up to 24 hours before</p><p>✓ Your information stays private</p></section></aside></div>
 <p class="mut sm" style="margin-top:24px">By confirming, you agree to the hospital’s appointment and cancellation policy.</p>
-</main><script src="script.js"></script></body></html>
+</main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="script.js"></script></body></html>
